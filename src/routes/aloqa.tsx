@@ -14,7 +14,8 @@ type Search = { sinf?: string };
 
 export const Route = createFileRoute("/aloqa")({
   validateSearch: (s: Record<string, unknown>): Search => {
-    const v = s.sinf == null ? undefined : String(s.sinf);
+    const raw = s["sinf"];
+    const v = raw == null ? undefined : String(raw);
     return v && GRADES.includes(v) ? { sinf: v } : {};
   },
   head: () => ({
@@ -170,7 +171,7 @@ function AdmissionForm() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+998 ");
   const [grade, setGrade] = useState(sinf ?? "");
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<Partial<Record<"name" | "phone" | "grade", string>>>({});
   const [sent, setSent] = useState(false);
 
   useEffect(() => {
@@ -181,8 +182,8 @@ function AdmissionForm() {
     e.preventDefault();
     const res = admissionSchema.safeParse({ name, phone, grade });
     if (!res.success) {
-      const errs: Record<string, string> = {};
-      for (const issue of res.error.issues) errs[String(issue.path[0])] = issue.message;
+      const errs: Partial<Record<"name" | "phone" | "grade", string>> = {};
+      for (const issue of res.error.issues) errs[issue.path[0] as "name" | "phone" | "grade"] = issue.message;
       setErrors(errs);
       return;
     }
