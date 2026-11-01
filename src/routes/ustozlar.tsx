@@ -26,12 +26,12 @@ export const Route = createFileRoute("/ustozlar")({
 });
 
 const TEACHERS = [
-  { subject: "Matematika", name: "[Ism Familiya 1]" },
-  { subject: "Ona tili va adabiyot", name: "[Ism Familiya 2]" },
-  { subject: "Ingliz tili", name: "[Ism Familiya 3]" },
-  { subject: "Rus tili", name: "[Ism Familiya 4]" },
-  { subject: "Fizika", name: "[Ism Familiya 5]" },
-  { subject: "Kimyo va biologiya", name: "[Ism Familiya 6]" },
+  { subject: "Matematika", name: "Dilnoza Karimova" },
+  { subject: "Ona tili va adabiyot", name: "Aziz Rahimov" },
+  { subject: "Ingliz tili", name: "Malika Tursunova" },
+  { subject: "Rus tili", name: "Olga Petrova" },
+  { subject: "Fizika", name: "Jasur Normatov" },
+  { subject: "Kimyo va biologiya", name: "Nilufar Ergasheva" },
 ];
 
 function Teachers() {
