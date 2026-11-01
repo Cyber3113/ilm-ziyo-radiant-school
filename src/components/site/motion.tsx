@@ -31,8 +31,8 @@ export function WordsReveal({
   delay = 0,
 }: {
   text: string;
-  highlight?: string;
-  className?: string;
+  highlight?: string | undefined;
+  className?: string | undefined;
   delay?: number;
 }) {
   const words = text.split(" ");

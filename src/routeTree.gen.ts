@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AloqaRouteImport } from './routes/aloqa'
 import { Route as DasturlarRouteImport } from './routes/dasturlar'
 import { Route as NatijalarRouteImport } from './routes/natijalar'
 import { Route as UstozlarRouteImport } from './routes/ustozlar'
@@ -17,6 +18,11 @@ import { Route as UstozlarRouteImport } from './routes/ustozlar'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AloqaRoute = AloqaRouteImport.update({
+  id: '/aloqa',
+  path: '/aloqa',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DasturlarRoute = DasturlarRouteImport.update({
@@ -37,12 +43,14 @@ const UstozlarRoute = UstozlarRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/aloqa': typeof AloqaRoute
   '/dasturlar': typeof DasturlarRoute
   '/natijalar': typeof NatijalarRoute
   '/ustozlar': typeof UstozlarRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/aloqa': typeof AloqaRoute
   '/dasturlar': typeof DasturlarRoute
   '/natijalar': typeof NatijalarRoute
   '/ustozlar': typeof UstozlarRoute
@@ -50,20 +58,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/aloqa': typeof AloqaRoute
   '/dasturlar': typeof DasturlarRoute
   '/natijalar': typeof NatijalarRoute
   '/ustozlar': typeof UstozlarRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dasturlar' | '/natijalar' | '/ustozlar'
+  fullPaths: '/' | '/aloqa' | '/dasturlar' | '/natijalar' | '/ustozlar'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dasturlar' | '/natijalar' | '/ustozlar'
-  id: '__root__' | '/' | '/dasturlar' | '/natijalar' | '/ustozlar'
+  to: '/' | '/aloqa' | '/dasturlar' | '/natijalar' | '/ustozlar'
+  id: '__root__' | '/' | '/aloqa' | '/dasturlar' | '/natijalar' | '/ustozlar'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AloqaRoute: typeof AloqaRoute
   DasturlarRoute: typeof DasturlarRoute
   NatijalarRoute: typeof NatijalarRoute
   UstozlarRoute: typeof UstozlarRoute
@@ -76,6 +86,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/aloqa': {
+      id: '/aloqa'
+      path: '/aloqa'
+      fullPath: '/aloqa'
+      preLoaderRoute: typeof AloqaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dasturlar': {
@@ -104,6 +121,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AloqaRoute: AloqaRoute,
   DasturlarRoute: DasturlarRoute,
   NatijalarRoute: NatijalarRoute,
   UstozlarRoute: UstozlarRoute,
