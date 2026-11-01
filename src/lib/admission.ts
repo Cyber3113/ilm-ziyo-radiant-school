@@ -9,6 +9,8 @@ export function normalizeUzPhone(input: string): string {
   return `+998${local}`;
 }
 
+export const TRACKS = ["Meditsina", "IT", "Biznes"] as const;
+
 export const admissionSchema = z.object({
   name: z
     .string()
@@ -22,6 +24,7 @@ export const admissionSchema = z.object({
   grade: z.enum(GRADES as [string, ...string[]], {
     errorMap: () => ({ message: "Sinfni tanlang" }),
   }),
+  track: z.enum(TRACKS, { errorMap: () => ({ message: "Yo'nalishni tanlang" }) }),
 });
 
 export type AdmissionInput = z.input<typeof admissionSchema>;

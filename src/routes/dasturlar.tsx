@@ -139,6 +139,13 @@ function CrossArt() {
 
 const TRACKS = [
   {
+    title: "Meditsina",
+    text: "Biologiya, kimyo va anatomiya. Laboratoriya mashg'ulotlari va tibbiy terminologiya.",
+    tags: ["Biologiya", "Kimyo", "Laboratoriya"],
+    art: <CrossArt />,
+    bg: "bg-brand",
+  },
+  {
     title: "IT",
     text: "Dasturlash asoslari, matematika va algoritmlar. Kichik loyihalar bilan ishlaysiz.",
     tags: ["Python", "Matematika", "Loyiha"],
@@ -146,18 +153,11 @@ const TRACKS = [
     bg: "bg-ink",
   },
   {
-    title: "Yuridik",
-    text: "Huquq asoslari, tarix va ijtimoiy fanlar. Munozara va sud amaliyoti bilan tanishasiz.",
-    tags: ["Huquq", "Tarix", "Munozara"],
+    title: "Biznes",
+    text: "Iqtisodiyot asoslari, moliyaviy savodxonlik va tadbirkorlik. Real biznes loyihalar ustida ishlaysiz.",
+    tags: ["Iqtisodiyot", "Moliya", "Tadbirkorlik"],
     art: <ScaleArt />,
     bg: "bg-sand",
-  },
-  {
-    title: "Tibbiyot",
-    text: "Biologiya, kimyo va anatomiya. Laboratoriya mashg'ulotlari va tibbiy terminologiya.",
-    tags: ["Biologiya", "Kimyo", "Laboratoriya"],
-    art: <CrossArt />,
-    bg: "bg-brand",
   },
 ];
 

@@ -1,12 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "motion/react";
-import { CheckCircle2, Mail, MapPin, Phone, Send } from "lucide-react";
+import { CheckCircle2, MapPin, Phone, Send } from "lucide-react";
 import { useEffect, useState, type FormEvent } from "react";
 import { toast } from "sonner";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { EASE, Reveal } from "@/components/site/motion";
 import { PageHero } from "@/components/site/PageHero";
-import { admissionSchema, GRADES } from "@/lib/admission";
+import { admissionSchema, GRADES, TRACKS } from "@/lib/admission";
 import { SITE, telHref } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -38,17 +38,15 @@ export const Route = createFileRoute("/aloqa")({
 
 const FAQ = [
   { q: "Qanday yoshdan qabul qilasizlar?", a: "1-sinfdan 11-sinfgacha qabul qilamiz." },
-  { q: "Bepul sinov darsi qanday o'tadi?", a: "[Sinov darsi haqida qisqa ma'lumot]" },
-  { q: "Qo'shimcha to'lov bormi?", a: "[Qo'shimcha to'lovlar haqida ma'lumot]" },
+  { q: "Bepul sinov darsi qanday o'tadi?", a: "Bepul sinov darsi 1 hafta davom etadi. Farzandingiz darslarga qatnashib, maktab bilan yaqindan tanishadi." },
+  { q: "Qo'shimcha to'lov bormi?", a: "Yo'q, qo'shimcha to'lovlar mavjud emas." },
   {
     q: "Narxlar qancha?",
     a: "Narxlar telefon orqali aniqlanadi. Qo'ng'iroq qiling, batafsil aytib beramiz.",
   },
 ];
 
-const MAP_SRC = `https://www.google.com/maps?q=${encodeURIComponent(
-  "Turkiston ko'chasi 177A, Denov, Surxondaryo",
-)}&z=16&output=embed`;
+const MAP_SRC = "https://www.google.com/maps?q=38.266957,67.904024&z=17&output=embed";
 
 function Contact() {
   return (
@@ -73,15 +71,7 @@ function Contact() {
               </a>
             ))}
           </InfoCard>
-          <InfoCard icon={Mail} title="Email" delay={0.16}>
-            <p>{SITE.email}</p>
-          </InfoCard>
-          <InfoCard icon={Send} title="Telegram" delay={0.24}>
-            <p>
-              {SITE.telegramName} · {SITE.telegramHandle}
-            </p>
-          </InfoCard>
-          <Reveal delay={0.3} className="mt-2 flex flex-wrap gap-3">
+          <Reveal delay={0.16} className="mt-2 flex flex-wrap gap-3">
             {SITE.socials.map((s) => (
               <a
                 key={s.label}
@@ -171,7 +161,8 @@ function AdmissionForm() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+998 ");
   const [grade, setGrade] = useState(sinf ?? "");
-  const [errors, setErrors] = useState<Partial<Record<"name" | "phone" | "grade", string>>>({});
+  const [track, setTrack] = useState("");
+  const [errors, setErrors] = useState<Partial<Record<"name" | "phone" | "grade" | "track", string>>>({});
   const [sent, setSent] = useState(false);
 
   useEffect(() => {
@@ -180,10 +171,10 @@ function AdmissionForm() {
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const res = admissionSchema.safeParse({ name, phone, grade });
+    const res = admissionSchema.safeParse({ name, phone, grade, track });
     if (!res.success) {
-      const errs: Partial<Record<"name" | "phone" | "grade", string>> = {};
-      for (const issue of res.error.issues) errs[issue.path[0] as "name" | "phone" | "grade"] = issue.message;
+      const errs: Partial<Record<"name" | "phone" | "grade" | "track", string>> = {};
+      for (const issue of res.error.issues) errs[issue.path[0] as "name" | "phone" | "grade" | "track"] = issue.message;
       setErrors(errs);
       return;
     }
@@ -219,7 +210,7 @@ function AdmissionForm() {
               </motion.div>
               <h3 className="mt-6 text-3xl font-bold">Rahmat, {name.trim()}!</h3>
               <p className="mt-3 max-w-sm text-lg text-muted-foreground">
-                Arizangiz qabul qilindi. Ma'lumot Telegram yoki telefon orqali beriladi.
+                Arizangiz qabul qilindi. Tez orada telefon orqali bog'lanamiz.
               </p>
               <button
                 type="button"
@@ -228,6 +219,7 @@ function AdmissionForm() {
                   setName("");
                   setPhone("+998 ");
                   setGrade("");
+                  setTrack("");
                 }}
                 className="mt-8 font-bold text-brand underline underline-offset-4"
               >
@@ -286,6 +278,23 @@ function AdmissionForm() {
                 {errors.grade && <span className="text-sm text-destructive">{errors.grade}</span>}
               </label>
 
+              <label className="flex flex-col gap-2">
+                <span className="font-bold">Yo'nalish</span>
+                <select
+                  value={track}
+                  onChange={(e) => setTrack(e.target.value)}
+                  className={cn(field, "cursor-pointer appearance-none", !track && "text-muted-foreground", errors.track && "border-destructive")}
+                >
+                  <option value="">Tanlang</option>
+                  {TRACKS.map((t) => (
+                    <option key={t} value={t}>
+                      {t}
+                    </option>
+                  ))}
+                </select>
+                {errors.track && <span className="text-sm text-destructive">{errors.track}</span>}
+              </label>
+
               <button
                 type="submit"
                 className="group mt-3 inline-flex items-center justify-center gap-3 rounded-full bg-sun px-8 py-5 text-lg font-bold text-sun-foreground transition-all hover:-translate-y-0.5 hover:shadow-lift active:translate-y-0.5"
@@ -294,7 +303,7 @@ function AdmissionForm() {
                 <Send className="size-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-1" />
               </button>
               <p className="text-sm text-muted-foreground">
-                Ariza yuborilgach, ma'lumot Telegram yoki telefon orqali beriladi.
+                Ariza yuborilgach, ma'lumot telefon orqali beriladi.
               </p>
             </motion.form>
           )}

@@ -86,7 +86,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Ilm-u Ziyo maktabi — Denov" },
       {
         name: "description",
-        content: "Ilm-u Ziyo maktabi: 1–11-sinflar, tajribali ustozlar va kichik guruhlar. Denov filiali.",
+        content: "Ilm-u Ziyo maktabi: 1–11-sinflar, tajribali ustozlar va kichik guruhlar. Denov shahridagi xususiy maktab.",
       },
       { name: "author", content: "Ilm-u Ziyo" },
       { property: "og:site_name", content: "Ilm-u Ziyo maktabi" },

@@ -1,15 +1,11 @@
 export const SITE = {
   name: "Ilm-u Ziyo",
   fullName: "Ilm-u Ziyo maktabi",
-  branch: "Denov filiali",
+  branch: "Denov",
   address: "Denov, Istiqbol MFY, Turkiston ko'chasi 177A",
   landmark: "Turon mehmonxonasi",
   phones: ["+998 99 242 42 12", "+998 99 252 42 12"],
-  email: "[maktab@email.uz]",
-  telegramName: "Ilm-u Ziyo school Denov",
-  telegramHandle: "[@telegram_kanal]",
   socials: [
-    { label: "Telegram", href: "https://t.me/" },
     { label: "Instagram", href: "https://instagram.com/" },
     { label: "YouTube", href: "https://youtube.com/" },
   ],

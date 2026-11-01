@@ -15,7 +15,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Sifatli ta'lim, tajribali ustozlar va individual yondashuv. 1–11-sinflar, Denov filiali. Bepul sinov darsiga yoziling.",
+          "Sifatli ta'lim, tajribali ustozlar va individual yondashuv. 1–11-sinflar, Denov shahridagi xususiy maktab. Bepul sinov darsiga yoziling.",
       },
       { property: "og:title", content: "Ilm-u Ziyo maktabi — Farzandingiz uchun kuchli poydevor" },
       {
@@ -102,7 +102,7 @@ function Hero() {
             transition={{ duration: 0.8, delay: 0.7, ease: EASE }}
             className="mt-8 max-w-xl text-lg text-muted-foreground md:text-2xl"
           >
-            Sifatli ta'lim, tajribali ustozlar va individual yondashuv. 1–11-sinflar, Denov filiali.
+            Sifatli ta'lim, tajribali ustozlar va individual yondashuv. 1–11-sinflar, Denov shahridagi xususiy maktab.
           </motion.p>
 
           <motion.div
