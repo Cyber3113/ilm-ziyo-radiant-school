@@ -89,7 +89,7 @@ function Hero() {
             2026–2027 o'quv yiliga qabul ochiq
           </motion.p>
 
-          <h1 className="text-[2.9rem] font-extrabold leading-[0.95] sm:text-6xl md:text-7xl xl:text-[5.6rem]">
+          <h1 className="text-[2.9rem] font-extrabold leading-[0.95] sm:text-6xl md:text-7xl xl:text-[4.6rem]">
             <WordsReveal
               text="Farzandingiz uchun kuchli poydevor shu yerda boshlanadi."
               highlight="kuchli"
