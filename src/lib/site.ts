@@ -6,8 +6,8 @@ export const SITE = {
   landmark: "Turon mehmonxonasi",
   phones: ["+998 99 242 42 12", "+998 99 252 42 12"],
   socials: [
-    { label: "Instagram", href: "https://instagram.com/" },
-    { label: "YouTube", href: "https://youtube.com/" },
+    { label: "Telegram", href: "https://t.me/ilmuziyodenov" },
+    { label: "Instagram", href: "https://www.instagram.com/ilmuziyodenov" },
   ],
 } as const;
 
