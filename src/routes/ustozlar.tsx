@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { MessageCircle } from "lucide-react";
 import classroom from "@/assets/classroom.jpg";
+import hasan from "@/assets/teacher-hasan.jpg.asset.json";
+import umid from "@/assets/teacher-umid.jpg.asset.json";
+import shahboz from "@/assets/teacher-shahboz.jpg.asset.json";
 import { CardCarousel } from "@/components/site/CardCarousel";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { EASE, Reveal } from "@/components/site/motion";
@@ -26,12 +29,9 @@ export const Route = createFileRoute("/ustozlar")({
 });
 
 const TEACHERS = [
-  { subject: "Matematika", name: "Dilnoza Karimova" },
-  { subject: "Ona tili va adabiyot", name: "Aziz Rahimov" },
-  { subject: "Ingliz tili", name: "Malika Tursunova" },
-  { subject: "Rus tili", name: "Olga Petrova" },
-  { subject: "Fizika", name: "Jasur Normatov" },
-  { subject: "Kimyo va biologiya", name: "Nilufar Ergasheva" },
+  { subject: "Tarix", name: "Xasan Danyarov", years: 4, photo: hasan.url },
+  { subject: "Matematika", name: "Umid Qayumov", years: 6, photo: umid.url },
+  { subject: "Kimyo", name: "Shahboz", years: 5, photo: shahboz.url },
 ];
 
 function Teachers() {
@@ -91,7 +91,7 @@ function Teachers() {
   );
 }
 
-function TeacherCard({ subject, name, index }: { subject: string; name: string; index: number }) {
+function TeacherCard({ subject, name, years, photo, index }: { subject: string; name: string; years: number; photo: string; index: number }) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 30 }}
@@ -101,17 +101,17 @@ function TeacherCard({ subject, name, index }: { subject: string; name: string; 
       className="group h-full overflow-hidden rounded-[2rem] bg-card shadow-soft transition-shadow duration-500 hover:shadow-lift"
     >
       <div className="relative flex aspect-[4/3.6] items-center justify-center overflow-hidden bg-sand">
-        <div className="absolute inset-0 paper-grain opacity-60" />
-        <div className="absolute -bottom-16 left-1/2 size-64 -translate-x-1/2 rounded-full bg-sun/0 blur-2xl transition-all duration-700 group-hover:bg-sun/40" />
-        <svg viewBox="0 0 100 100" className="relative h-1/2 text-muted-foreground/45 transition-transform duration-700 group-hover:scale-110" aria-hidden>
-          <circle cx="50" cy="32" r="18" fill="currentColor" />
-          <path d="M18 92 C18 66 32 58 50 58 C68 58 82 66 82 92 Z" fill="currentColor" />
-        </svg>
+        <img
+          src={photo}
+          alt={`${name} — ${subject} ustozi`}
+          loading="lazy"
+          className="size-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+        />
       </div>
       <div className="p-7">
         <p className="text-sm font-bold text-brand">{subject}</p>
         <h3 className="mt-2 text-2xl font-bold">{name}</h3>
-        <p className="mt-3 text-muted-foreground">[Tajribasi, yutuqlari va qisqa ma'lumoti]</p>
+        <p className="mt-3 text-muted-foreground">{years} yillik tajriba</p>
       </div>
     </motion.article>
   );
