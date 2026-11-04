@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { GraduationCap, MapPin, Sparkles, Users } from "lucide-react";
 import type { MouseEvent } from "react";
-import logo from "@/assets/ilm-ziyo-logo.jpg.asset.json";
+import heroPortrait from "@/assets/hero-portrait.png.asset.json";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { EASE, Reveal, WordsReveal } from "@/components/site/motion";
 import { TrialButton } from "@/components/site/TrialButton";
@@ -176,8 +176,8 @@ function HeroArt() {
         {/* Logo */}
         <div className="absolute inset-[18%] animate-float">
           <img
-            src={logo.url}
-            alt="Ilm-u Ziyo maktabi belgisi"
+            src={heroPortrait.url}
+            alt="Ilm-u Ziyo maktabi"
             width={640}
             height={640}
             className="size-full rounded-full object-cover shadow-lift"
