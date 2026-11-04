@@ -13,7 +13,7 @@ export const Route = createFileRoute("/dasturlar")({
       {
         name: "description",
         content:
-          "1–11-sinflar uchun chuqurlashtirilgan ta'lim dasturlari. 9–11-sinflarda IT, Yuridik va Tibbiyot yo'nalishlari.",
+          "1–11-sinflar uchun chuqurlashtirilgan ta'lim dasturlari. 9–11-sinflarda Meditsina, Yurist, IT va Biznes yo'nalishlari.",
       },
       { property: "og:title", content: "Ilm-u Ziyo ta'lim dasturlari — 1–11-sinflar" },
       {
@@ -146,18 +146,18 @@ const TRACKS = [
     bg: "bg-brand",
   },
   {
-    title: "IT",
-    text: "Dasturlash asoslari, matematika va algoritmlar. Kichik loyihalar bilan ishlaysiz.",
-    tags: ["Python", "Matematika", "Loyiha"],
-    art: <CodeArt />,
-    bg: "bg-ink",
-  },
-  {
-    title: "Biznes",
-    text: "Iqtisodiyot asoslari, moliyaviy savodxonlik va tadbirkorlik. Real biznes loyihalar ustida ishlaysiz.",
-    tags: ["Iqtisodiyot", "Moliya", "Tadbirkorlik"],
+    title: "Yurist",
+    text: "Huquq asoslari, davlat va jamiyat, tarix. Munozara va nutq mashg'ulotlari.",
+    tags: ["Huquq", "Tarix", "Munozara"],
     art: <ScaleArt />,
     bg: "bg-sand",
+  },
+  {
+    title: "IT va Biznes",
+    text: "Dasturlash, matematika, iqtisodiyot va tadbirkorlik asoslari. Real loyihalar ustida ishlaysiz.",
+    tags: ["Python", "Matematika", "Iqtisodiyot", "Tadbirkorlik"],
+    art: <CodeArt />,
+    bg: "bg-ink",
   },
 ];
 
