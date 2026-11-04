@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "motion/react";
-import { Award, Camera, Medal, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 import { CardCarousel } from "@/components/site/CardCarousel";
 import { CtaBanner } from "@/components/site/CtaBanner";
-import { CountUp, EASE, Reveal } from "@/components/site/motion";
+import { CountUp, Reveal } from "@/components/site/motion";
 import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/natijalar")({
@@ -12,12 +11,12 @@ export const Route = createFileRoute("/natijalar")({
       { title: "Natijalar va fikrlar — Ilm-u Ziyo maktabi" },
       {
         name: "description",
-        content: "Ilm-u Ziyo o'quvchilari natijalari: olimpiada g'oliblari, imtihon natijalari va ota-onalarning fikrlari.",
+        content: "Ilm-u Ziyo o'quvchilari natijalari: imtihon natijalari va ota-onalarning fikrlari.",
       },
       { property: "og:title", content: "O'quvchilarimiz erishgan natijalar — Ilm-u Ziyo" },
       {
         property: "og:description",
-        content: "Olimpiada g'oliblari, imtihon natijalari va ota-onalarning fikrlari.",
+        content: "Imtihon natijalari va ota-onalarning fikrlari.",
       },
     ],
   }),
@@ -26,21 +25,17 @@ export const Route = createFileRoute("/natijalar")({
 
 // Example figures — replace with the school's real numbers.
 const STATS = [
-  { value: 25, suffix: "+", label: "Olimpiada g'oliblari soni" },
   { value: 86, suffix: "", label: "Imtihonda ball o'rtachasi" },
   { value: 10, suffix: "", label: "Maktab tajribasi, yil" },
 ];
 
-const REVIEWS = Array.from({ length: 5 }, (_, i) => ({
-  text: "[Ota-onaning haqiqiy fikri shu yerda bo'ladi.]",
-  name: "[Ism]",
-  grade: `[${i + 3}-sinf]`,
-}));
-
-const GALLERY = [
-  { label: "[G'olib fotosurati]", icon: Medal },
-  { label: "[Sertifikat]", icon: Award },
-  { label: "[Tadbir fotosurati]", icon: Camera },
+// Sample reviews — replace with real parents' feedback.
+const REVIEWS = [
+  { text: "Qizim matematikani yaxshi ko'rib qoldi. Ustozlar har bir bolaga alohida e'tibor berishadi.", name: "Gulnora opa", grade: "5-sinf" },
+  { text: "O'g'limning baholari ikki oyda sezilarli yaxshilandi. Ustozlar bilan doim aloqadamiz.", name: "Bahodir aka", grade: "7-sinf" },
+  { text: "Sinflar kichik, shuning uchun bola darsda yo'qolib qolmaydi. Juda mamnunmiz.", name: "Dilfuza opa", grade: "3-sinf" },
+  { text: "Farzandim tarix va kimyoga qiziqib qoldi. Maktab muhiti iliq va tartibli.", name: "Sherzod aka", grade: "9-sinf" },
+  { text: "Bepul sinov darsidan keyin hech ikkilanmasdan shu maktabni tanladik.", name: "Nodira opa", grade: "6-sinf" },
 ];
 
 function Results() {
@@ -50,11 +45,11 @@ function Results() {
         eyebrow="Natijalar"
         title="O'quvchilarimiz erishgan natijalar"
         highlight="natijalar"
-        subtitle="Olimpiada g'oliblari, imtihon natijalari va ota-onalarning fikrlari."
+        subtitle="Imtihon natijalari va ota-onalarning fikrlari."
       />
 
       <section className="container-site mt-16">
-        <div className="grid border-y md:grid-cols-3">
+        <div className="grid border-y md:grid-cols-2">
           {STATS.map((s, i) => (
             <Reveal
               key={s.label}
@@ -93,30 +88,6 @@ function Results() {
             </article>
           ))}
         </CardCarousel>
-      </section>
-
-      <section className="container-site mt-24 md:mt-32">
-        <div className="border-t pt-14">
-          <Reveal>
-            <h2 className="text-4xl font-bold md:text-5xl">Olimpiada yutuqlari</h2>
-          </Reveal>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {GALLERY.map((g, i) => (
-              <motion.div
-                key={g.label}
-                initial={{ opacity: 0, y: 40, rotate: i === 1 ? 0 : i === 0 ? -2 : 2 }}
-                whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.8, delay: i * 0.12, ease: EASE }}
-                className="group relative flex aspect-[4/3.1] flex-col justify-end overflow-hidden rounded-[2rem] bg-sand p-7"
-              >
-                <div className="absolute inset-0 paper-grain opacity-50" />
-                <g.icon className="absolute right-7 top-7 size-10 text-ink/25 transition-all duration-500 group-hover:scale-125 group-hover:text-sun" />
-                <p className="relative text-muted-foreground">{g.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
       </section>
 
       <CtaBanner title="Farzandingiz ham shu natijalarga erishsin." />

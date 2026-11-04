@@ -38,7 +38,7 @@ export const Route = createFileRoute("/aloqa")({
 
 const FAQ = [
   { q: "Qanday yoshdan qabul qilasizlar?", a: "1-sinfdan 11-sinfgacha qabul qilamiz." },
-  { q: "Bepul sinov darsi qanday o'tadi?", a: "Bepul sinov darsi 1 hafta davom etadi. Farzandingiz darslarga qatnashib, maktab bilan yaqindan tanishadi." },
+  { q: "Bepul sinov darsi qanday o'tadi?", a: "Bepul sinov darsi 3 kun davom etadi. Farzandingiz darslarga qatnashib, maktab bilan yaqindan tanishadi." },
   { q: "Qo'shimcha to'lov bormi?", a: "Yo'q, qo'shimcha to'lovlar mavjud emas." },
   {
     q: "Narxlar qancha?",
