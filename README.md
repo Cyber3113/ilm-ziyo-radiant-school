@@ -1,14 +1,18 @@
-# Welcome to your Lovable project
+# Ilm Ziyo Radiant School
+
+lovable hozirgi landing pageni biz to'lliq chiroiyli diaynda qilishimiz kerak bo'ladi va animatsiyalar bilan chiroyli qilishimiz kerak pdf faylda dizaynlari qanday bo'lsihi aytilgan. sayt nomi Ilm Ziyo maktabi
 
 This project was built with [Lovable](https://lovable.dev).
 
+**Live app**: https://ilm-ziyo-radiant-school.lovable.app
+
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/a5fe7e2c-ca7b-43ed-b8a4-5167d68cdf00).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +24,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
