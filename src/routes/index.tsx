@@ -180,7 +180,7 @@ function HeroArt() {
             alt="Ilm-u Ziyo maktabi"
             width={640}
             height={640}
-            className="size-full rounded-full object-cover object-[50%_15%] shadow-lift"
+            className="size-full rounded-full object-cover object-top shadow-lift"
           />
         </div>
 
