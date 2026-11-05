@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { GraduationCap, MapPin, Sparkles, Users } from "lucide-react";
 import type { MouseEvent } from "react";
-import heroPortrait from "@/assets/hero-portrait.png.asset.json";
+import heroPortrait from "@/assets/hero-portrait.png";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { EASE, Reveal, WordsReveal } from "@/components/site/motion";
 import { TrialButton } from "@/components/site/TrialButton";
@@ -11,6 +11,8 @@ import { SITE } from "@/lib/site";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Ilm-u Ziyo maktabi — Farzandingiz uchun kuchli poydevor" },
       {
         name: "description",
@@ -176,7 +178,7 @@ function HeroArt() {
         {/* Logo */}
         <div className="absolute inset-[18%] animate-float">
           <img
-            src={heroPortrait.url}
+            src={heroPortrait}
             alt="Ilm-u Ziyo maktabi"
             width={640}
             height={640}
