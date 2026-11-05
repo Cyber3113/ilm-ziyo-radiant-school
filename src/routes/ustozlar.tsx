@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { MessageCircle } from "lucide-react";
 import classroom from "@/assets/classroom.jpg";
-import hasan from "@/assets/teacher-hasan.jpg.asset.json";
-import umid from "@/assets/teacher-umid.jpg.asset.json";
-import shahboz from "@/assets/teacher-shahboz.jpg.asset.json";
+import hasan from "@/assets/teacher-hasan.jpg";
+import umid from "@/assets/teacher-umid.jpg";
+import shahboz from "@/assets/teacher-shahboz.jpg";
 import { CardCarousel } from "@/components/site/CardCarousel";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { EASE, Reveal } from "@/components/site/motion";
@@ -13,6 +13,8 @@ import { PageHero } from "@/components/site/PageHero";
 export const Route = createFileRoute("/ustozlar")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Ustozlar — Ilm-u Ziyo maktabi" },
       {
         name: "description",
@@ -29,9 +31,9 @@ export const Route = createFileRoute("/ustozlar")({
 });
 
 const TEACHERS = [
-  { subject: "Tarix", name: "Xasan Danyarov", years: 4, photo: hasan.url },
-  { subject: "Matematika", name: "Umid Qayumov", years: 6, photo: umid.url },
-  { subject: "Kimyo", name: "Shahboz", years: 5, photo: shahboz.url },
+  { subject: "Tarix", name: "Xasan Danyarov", years: 4, photo: hasan },
+  { subject: "Matematika", name: "Umid Qayumov", years: 6, photo: umid },
+  { subject: "Kimyo", name: "Shahboz", years: 5, photo: shahboz },
 ];
 
 function Teachers() {

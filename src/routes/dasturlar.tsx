@@ -9,6 +9,8 @@ import { GRADES } from "@/lib/admission";
 export const Route = createFileRoute("/dasturlar")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Dasturlar — 1–11-sinflar | Ilm-u Ziyo maktabi" },
       {
         name: "description",

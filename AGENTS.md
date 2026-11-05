@@ -14,3 +14,4 @@
 - Admission form validation lives in `src/lib/admission.ts` (tested in `src/test/admission.test.tsx`) so rules stay testable apart from UI.
 - Animations use the `motion` package via shared helpers in `src/components/site/motion.tsx`; root wraps in `MotionConfig reducedMotion="user"` to respect reduced-motion.
 - Header/Footer are rendered once in `src/routes/__root.tsx`; pages render only their own sections.
+- Keep school images as bundled imports from `src/assets`, not Lovable CDN pointers, so deployments on the user's VPS serve every image themselves.

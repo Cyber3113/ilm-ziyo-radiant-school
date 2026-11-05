@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/ilm-ziyo-logo.jpg.asset.json";
+import logo from "@/assets/ilm-ziyo-logo.jpg";
 import { NAV, SITE, telHref } from "@/lib/site";
 
 export function Footer() {
@@ -9,7 +9,7 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-3">
             <img
-              src={logo.url}
+              src={logo}
               alt=""
               width={40}
               height={40}

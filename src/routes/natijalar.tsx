@@ -8,6 +8,8 @@ import { PageHero } from "@/components/site/PageHero";
 export const Route = createFileRoute("/natijalar")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Natijalar va fikrlar — Ilm-u Ziyo maktabi" },
       {
         name: "description",

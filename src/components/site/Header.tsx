@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { Menu, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import logo from "@/assets/ilm-ziyo-logo.jpg.asset.json";
+import logo from "@/assets/ilm-ziyo-logo.jpg";
 import { NAV, SITE, telHref } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -36,7 +36,7 @@ export function Header() {
         <Link to="/" className="group flex items-center gap-3">
           <span className="relative block size-11 overflow-hidden rounded-2xl bg-card shadow-soft md:size-12">
             <img
-              src={logo.url}
+              src={logo}
               alt="Ilm-u Ziyo logotipi"
               width={48}
               height={48}

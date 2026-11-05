@@ -20,6 +20,8 @@ export const Route = createFileRoute("/aloqa")({
   },
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Manzil va aloqa — Ilm-u Ziyo maktabi, Denov" },
       {
         name: "description",
